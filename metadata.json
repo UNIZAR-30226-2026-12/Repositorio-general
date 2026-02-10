@@ -1,0 +1,5 @@
+{
+  "name": "Reversi Minimalist Frontend",
+  "description": "Frontend puro en React/TS que delega el 100% de la lógica de juego al backend de Python.",
+  "requestFramePermissions": []
+}
