@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: reversi_backend
+    restart: always
+    expose:
+      - "8000"
+    # No exponemos el puerto 8000 al host para obligar a pasar por Nginx
+    # Si quieres debugging directo, descomenta la siguiente línea:
+    # ports:
+    #   - "8000:8000"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: reversi_frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
